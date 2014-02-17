@@ -1,3 +1,4 @@
+apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'eclipse-wtp'
@@ -18,4 +19,8 @@ dependencies {
     testCompile 'junit:junit:4.11'
     testCompile 'org.springframework:spring-test:4.0.1.RELEASE'
     testCompile 'com.jayway.jsonpath:json-path:0.8.1'
+}
+
+test {
+    testLogging.showStandardStreams = true
 }
