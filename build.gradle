@@ -1,0 +1,21 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+	compile 'org.springframework:spring-webmvc:4.0.1.RELEASE'
+	compile 'org.codehaus.jackson:jackson-mapper-asl:1.8.1'
+	
+	providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+	
+	runtime 'javax.servlet:jstl:1.1.2'
+   
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.springframework:spring-test:4.0.1.RELEASE'
+    testCompile 'com.jayway.jsonpath:json-path:0.8.1'
+}
