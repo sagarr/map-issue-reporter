@@ -15,7 +15,7 @@
 		</init-param>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>com.rohankar.playground.springconfig</param-value>
+			<param-value>spring.config</param-value>
 		</init-param>
 	</servlet>
 

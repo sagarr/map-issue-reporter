@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {com.rohankar.playground.springconfig.WebConfig.class})
+@ContextConfiguration(classes = {spring.config.WebConfig.class})
 public class MapAnomalyReportEndpointIntTest {
 
     @Autowired
