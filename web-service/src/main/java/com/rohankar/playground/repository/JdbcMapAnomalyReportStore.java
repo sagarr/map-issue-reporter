@@ -16,7 +16,7 @@ import com.rohankar.playground.bean.Report;
  * @author Sagar Rohankar
  */
 @Repository
-public class InMemoryMapAnomalyReportStore implements MapAnomalyReportStore {
+public class JdbcMapAnomalyReportStore implements MapAnomalyReportStore {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
