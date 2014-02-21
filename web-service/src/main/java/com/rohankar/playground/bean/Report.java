@@ -5,15 +5,15 @@ package com.rohankar.playground.bean;
  */
 public class Report {
 
-    private String id;
+    private int id;
     private Coordinates coordinates;
     private String anomalyType;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(final String id) {
+    public void setId(final int id) {
         this.id = id;
     }
 

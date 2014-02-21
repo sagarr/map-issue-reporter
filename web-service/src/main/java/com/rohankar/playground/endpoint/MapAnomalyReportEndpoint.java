@@ -1,15 +1,15 @@
 package com.rohankar.playground.endpoint;
 
 import java.util.Collection;
-import java.util.Collections;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.rohankar.playground.bean.Coordinates;
 import com.rohankar.playground.bean.Report;
+import com.rohankar.playground.service.MapAnomalyReportService;
 
 /**
  * @author Sagar Rohankar
@@ -18,14 +18,13 @@ import com.rohankar.playground.bean.Report;
 @RequestMapping("/reports")
 public class MapAnomalyReportEndpoint {
 
+    @Autowired
+    private MapAnomalyReportService reportService;
+
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Report> getReports() {
-        final Report report = new Report();
-        report.setId("12345");
-        report.setAnomalyType("Dead End");
-        report.setCoordinates(new Coordinates(1.2323, 51.23221));
-        return Collections.singletonList(report);
+        return reportService.getReports();
     }
 
 }

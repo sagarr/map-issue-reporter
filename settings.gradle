@@ -1,1 +1,5 @@
 rootProject.name = 'angular-spring-gradle-playground'
+
+include 'db', 'web-service'
+
+project(":web-service").name = rootProject.name + "-ws"

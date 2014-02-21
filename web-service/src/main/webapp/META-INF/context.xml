@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Environment name="/report/db/driverClass" value="org.postgresql.Driver" type="java.lang.String" />
+    <Environment name="/report/db/url" value="jdbc:postgresql://localhost:5432/reportdb" type="java.lang.String" />
+    <Environment name="/report/db/user" value="reportdb" type="java.lang.String" />
+    <Environment name="/report/db/password" value="reportdb" type="java.lang.String" />
+    <Environment name="/report/db/schema" value="report_db" type="java.lang.String" /> <!-- for postgresql -->
+</Context>
