@@ -4,6 +4,8 @@ http://gradleproject.wordpress.com/2013/04/22/gradle-liquibase-plugin/
 */
 
 apply plugin: 'liquibase'
+apply plugin: 'java'
+apply plugin: 'eclipse'
 /*apply from: 'database.gradle'*/
 
 buildscript {

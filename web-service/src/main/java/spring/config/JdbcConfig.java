@@ -21,11 +21,14 @@ public class JdbcConfig {
     @Autowired
     private Environment env;
 
-    @Bean
+    @Bean(destroyMethod = "close")
     public DataSource getDataSource() throws NamingException {
         final Context ctx = new InitialContext();
-        System.out.println(ctx.lookup("java:comp/env/report/db/driverClass"));
-        final DataSource ds = new BasicDataSource();
+        final BasicDataSource ds = new BasicDataSource();
+        ds.setDriverClassName((String)ctx.lookup("java:comp/env/report/db/driverClass"));
+        ds.setUrl((String)ctx.lookup("java:comp/env/report/db/url"));
+        ds.setUsername((String)ctx.lookup("java:comp/env/report/db/user"));
+        ds.setPassword((String)ctx.lookup("java:comp/env/report/db/password"));
         return ds;
     }
 

@@ -13,6 +13,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import spring.config.TestConfig;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -24,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {spring.config.WebConfig.class})
+@ContextConfiguration(classes = {TestConfig.class})
 public class MapAnomalyReportEndpointIntTest {
 
     @Autowired
@@ -33,11 +34,11 @@ public class MapAnomalyReportEndpointIntTest {
     @BeforeClass
     public static void setup() throws IllegalStateException, NamingException {
         final SimpleNamingContextBuilder namingBuilder = SimpleNamingContextBuilder.emptyActivatedContextBuilder();
-        namingBuilder.bind("java:comp/env/report/db/driverClass", "org.hsql.Driver");
-        namingBuilder.bind("java:comp/env/report/db/url", "jdbc:postgresql://localhost:5432/reportdb");
+        namingBuilder.bind("java:comp/env/report/db/driverClass", "org.hsqldb.jdbc.JDBCDriver");
+        namingBuilder.bind("java:comp/env/report/db/url", "jdbc:hsqldb:mem:reportdb;shutdown=false");
         namingBuilder.bind("java:comp/env/report/db/user", "sa");
         namingBuilder.bind("java:comp/env/report/db/password", "");
-        namingBuilder.bind("java:comp/env/report/db/schema", "");
+        namingBuilder.bind("java:comp/env/report/db/schema", "report");
         namingBuilder.activate();
     }
 
@@ -48,6 +49,6 @@ public class MapAnomalyReportEndpointIntTest {
             .andDo(print()) //
             .andExpect(status().isOk()) //
             .andExpect(content().contentType("application/json;charset=UTF-8")) //
-            .andExpect(jsonPath("$[0].id").value("12345"));
+            .andExpect(jsonPath("$[0].id").value(1));
     }
 }
