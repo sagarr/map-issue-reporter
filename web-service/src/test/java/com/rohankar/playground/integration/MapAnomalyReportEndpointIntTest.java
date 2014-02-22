@@ -33,13 +33,13 @@ public class MapAnomalyReportEndpointIntTest {
 
     @BeforeClass
     public static void setup() throws IllegalStateException, NamingException {
-        final SimpleNamingContextBuilder namingBuilder = SimpleNamingContextBuilder.emptyActivatedContextBuilder();
-        namingBuilder.bind("java:comp/env/report/db/driverClass", "org.hsqldb.jdbc.JDBCDriver");
-        namingBuilder.bind("java:comp/env/report/db/url", "jdbc:hsqldb:mem:reportdb;shutdown=false");
-        namingBuilder.bind("java:comp/env/report/db/user", "sa");
-        namingBuilder.bind("java:comp/env/report/db/password", "");
-        namingBuilder.bind("java:comp/env/report/db/schema", "report");
-        namingBuilder.activate();
+        final SimpleNamingContextBuilder context = SimpleNamingContextBuilder.emptyActivatedContextBuilder();
+        context.bind("java:comp/env/report/db/driverClass", "org.hsqldb.jdbc.JDBCDriver");
+        context.bind("java:comp/env/report/db/url", "jdbc:hsqldb:mem:reportdb;shutdown=false");
+        context.bind("java:comp/env/report/db/user", "sa");
+        context.bind("java:comp/env/report/db/password", "");
+        context.bind("java:comp/env/report/db/schema", "report");
+        context.activate();
     }
 
     @Test
@@ -49,6 +49,6 @@ public class MapAnomalyReportEndpointIntTest {
             .andDo(print()) //
             .andExpect(status().isOk()) //
             .andExpect(content().contentType("application/json;charset=UTF-8")) //
-            .andExpect(jsonPath("$[0].id").value(1));
+            .andExpect(jsonPath("$[0].id").value(1)); // TODO assert other values
     }
 }
