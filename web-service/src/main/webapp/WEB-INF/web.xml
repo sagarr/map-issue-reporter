@@ -4,6 +4,8 @@
 	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+	<display-name>AngularJs Spring Gradle Liquibase Project</display-name>
+	
 	<servlet>
 		<servlet-name>angular-spring-gradle-playground</servlet-name>
 		<servlet-class>
@@ -11,7 +13,8 @@
 		</servlet-class>
 		<init-param>
 			<param-name>contextClass</param-name>
-			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
 		</init-param>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>

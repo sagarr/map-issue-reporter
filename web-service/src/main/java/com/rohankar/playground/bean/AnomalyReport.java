@@ -3,7 +3,7 @@ package com.rohankar.playground.bean;
 /**
  * @author Sagar Rohankar
  */
-public class Report {
+public class AnomalyReport {
 
     private int id;
     private Coordinates coordinates;

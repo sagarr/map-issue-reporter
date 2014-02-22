@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.rohankar.playground.bean.Coordinates;
-import com.rohankar.playground.bean.Report;
+import com.rohankar.playground.bean.AnomalyReport;
 
 /**
  * @author Sagar Rohankar
@@ -22,16 +22,16 @@ public class JdbcMapAnomalyReportStore implements MapAnomalyReportStore {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public Collection<Report> retrieveReports() {
-        return jdbcTemplate.query("SELECT * FROM reports", new RowMapper<Report>() {
+    public Collection<AnomalyReport> retrieveReports() {
+        return jdbcTemplate.query("SELECT * FROM reports", new RowMapper<AnomalyReport>() {
 
             @Override
-            public Report mapRow(final ResultSet rs, final int rowNum) throws SQLException {
+            public AnomalyReport mapRow(final ResultSet rs, final int rowNum) throws SQLException {
                 final int id = rs.getInt(1);
                 final String anomalyType = rs.getString(2);
                 final double lon = rs.getDouble(3);
                 final double lat = rs.getDouble(4);
-                final Report report = new Report();
+                final AnomalyReport report = new AnomalyReport();
                 report.setId(id);
                 report.setAnomalyType(anomalyType);
                 final Coordinates coordinates = new Coordinates(lon, lat);

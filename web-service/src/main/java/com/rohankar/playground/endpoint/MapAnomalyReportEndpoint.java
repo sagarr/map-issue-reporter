@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.rohankar.playground.bean.Report;
+import com.rohankar.playground.bean.AnomalyReport;
 import com.rohankar.playground.service.MapAnomalyReportService;
 
 /**
@@ -23,7 +23,7 @@ public class MapAnomalyReportEndpoint {
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Report> getReports() {
+    public Collection<AnomalyReport> getReports() {
         return reportService.getReports();
     }
 
